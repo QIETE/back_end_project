@@ -5,12 +5,12 @@ angular.module('skyStream')
                 templateUrl: 'js/routes/home/template.html',
                 controller: 'searchController',
                 resolve: {
-                    check: function($location) {
-                        if ('Your Condition') {
-                            //Do something
+                    check: function($location, userService) {
+                        var user = userService.retrieve();
+                        if (user) {
+                            $location.path('/home')
                         } else {
-                            $location.path('/'); //redirect user to home.
-                            alert("You don't have access here");
+                            $location.path('/')
                         }
                     }
                 }

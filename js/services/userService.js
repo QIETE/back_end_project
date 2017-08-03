@@ -4,18 +4,18 @@ angular.module('skyStream')
         var user;
 
         function login(username, password, callback) {
-            userFirebaseService.login(username, password, function(result) {
-                if (result.status === 'LOGIN_SUCCEEDED') {
-                    userFirebaseService.retrieve(username, function(result) {
-                        if (result.status = 'RETRIEVE_SUCCEEDED') {
-                            user = result.data
+            userFirebaseService.login(username, password, function(login) {
+                if (login.status === 'LOGIN_SUCCEEDED') {
+                    userFirebaseService.retrieve(username, function(retrieve) {
+                        if (retrieve.status === 'RETRIEVE_SUCCEEDED') {
+                            user = retrieve.data
+                            
+                            callback(login)
                         }
                     })
+                } else {
+                    callback(login)
                 }
-
-                delete result.data
-                
-                callback(result)
             })
         }
 

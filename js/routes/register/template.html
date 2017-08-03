@@ -15,7 +15,8 @@
                         </div>
                     </div>
                     <div class="col-sm-12 form-group">
-                        <input ng-required="true" ng-model="username" type="text" name="Username" class="form-control input-lg" placeholder="Username" tabindex="1">
+                        <input ng-required="true" ng-model="username" type="text" name="Username" class="form-control input-lg " placeholder="Username" tabindex="1">
+                        <p5 class="errormsg" ng-show="alreadyRegistered">This user already exists</p5>  
                     </div>
                 </div>
                 <div class="form-group">

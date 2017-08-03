@@ -298,3 +298,6 @@ button.btn.form-control.modal-button {
   background-color: rgba(14, 157, 217, 0.2); }
 
 /* --------------------- register --------------------------------*/
+.errormsg {
+  color: #ea0000;
+  font-size: 20px; }

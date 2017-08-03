@@ -1,6 +1,7 @@
 angular.module('skyStream')
-  .controller('streamsResultsController', function ($scope, $routeParams, DataService, $sce) {
+  .controller('streamsResultsController', function ($scope, $rootScope, $routeParams, DataService, $sce) {
     var stream = $routeParams.query
+    $rootScope.auth = true
     $scope.section = 'YOUR STREAMS RESULTS'
     $scope.notGame = ''
     DataService.searchStreams(stream)
@@ -10,9 +11,9 @@ angular.module('skyStream')
           key.channel.vUrl = $sce.trustAsResourceUrl(url)
         })
         $scope.names = oResponse.data.streams
-        if($scope.names.length === 0){
+        if ($scope.names.length === 0) {
           $scope.notGame += $routeParams.query + ' not found'
-        }else{
+        } else {
           $scope.names = oResponse.data.streams
         }
       })

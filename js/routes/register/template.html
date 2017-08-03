@@ -1,0 +1,53 @@
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3" ng-hide="registered">
+            <form ng-submit="register()" role="form">
+                <hr class="colorgraph">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-6 col-md-6">
+                        <div class="form-group">
+                            <input ng-model="name" ng-required="true" type="text" name="name"  class="form-control input-lg" placeholder="Name" tabindex="1" >
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-6">
+                        <div class="form-group">
+                            <input ng-required="true" ng-model="surname" type="text" name="surname"  class="form-control input-lg" placeholder="Surname" tabindex="2">
+                        </div>
+                    </div>
+                    <div class="col-sm-12 form-group">
+                        <input ng-required="true" ng-model="username" type="text" name="Username" class="form-control input-lg" placeholder="Username" tabindex="1">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <input ng-required="true" ng-model="password" type="password" name="Password"  class="form-control input-lg" placeholder="Password" tabindex="3">
+                </div>
+                <div class="form-group">
+                    <input ng-required="true" ng-model="email" type="email" name="email"  class="form-control input-lg" placeholder="Email Address" tabindex="4">
+                </div>
+                <div class="row">
+                    <div class="col-xs-12 col-sm-6 col-md-6">
+                        <div class="form-group">
+                            <input ng-required="true" ng-model="age" type="number" name="Age"  class="form-control input-lg" placeholder="Age" tabindex="5">
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-6">
+                        <div class="form-group">
+                            <input ng-required="true" ng-model="country" type="Country" name="country" class="form-control input-lg" placeholder="Country" tabindex="6">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-4 col-sm-3 col-md-3">
+                    </div>
+                </div>
+                <hr class="colorgraph">
+                <div class="row">
+                    <div class="col-xs-12 col-md-6"><input type="submit" value="REGISTER" class="btn btn-success btn-block btn-lg"></div>
+
+                </div>
+            </form>
+        </div>
+        <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3" ng-show="registered">< <p5>REGISTER OK <a href="#!/">CLICK HERE TO GO TO LOG IN</a></p5>   
+        </div>
+    </div>
+    

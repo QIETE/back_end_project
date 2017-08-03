@@ -1,5 +1,6 @@
 angular.module('skyStream')
-.controller('getTopVideosController', function ($scope, DataService, $sce) {
+.controller('getTopVideosController', function ($scope, $rootScope, DataService, $sce) {
+  $rootScope.auth = true
   $scope.section = 'TOP VIDEOS'
   DataService.getTopVideos()
   .then(function (oData) {

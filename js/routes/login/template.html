@@ -1,0 +1,35 @@
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
+            <form ng-submit="register()" role="form">
+                <hr class="colorgraph">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-6 col-md-6">
+                        <div class="form-group">
+                            <input ng-model="liusername" ng-required="true" type="text" name="username" class="form-control input-lg" placeholder="Enter your Username" tabindex="1">
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-6">
+                        <div class="form-group">
+                            <input ng-required="true" ng-model="lipassword" type="password" name="password" class="form-control input-lg" placeholder="Enter your password" tabindex="2">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-4 col-sm-3 col-md-3">
+                    </div>
+                </div>
+                <hr class="colorgraph">
+                <div class="row">
+                    <div class="col-xs-12 col-md-6">
+                        <input ng-click="login()" type="submit" value="LOG IN" class="btn btn-success btn-block btn-lg">
+                    </div>
+
+                    <div class="col-xs-12 col-md-6">
+                        <a href="#!/register">click here to REGISTER</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    

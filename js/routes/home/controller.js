@@ -1,6 +1,7 @@
 angular.module('skyStream')
 
   .controller('searchController', function ($scope, $rootScope, $location) {
+    $rootScope.auth = true
     console.log('controller inside home working...')
     $scope.getQuery = function () {
       var query = $scope.query

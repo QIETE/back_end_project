@@ -1,33 +1,33 @@
 <div class="home-container">
-  <div id="particles-js">
-    <div class="container">
-      <div class="row top">
-        <div class="twelve column">
-          <div class="logo">Sky <span>Stream</span></div>
-          <h1 class="text">The web where you can see all the streams , games and top videos in real-time , free of cost.</h1>
-        </div>
-      </div>
-      <div class="hello text-center search-container">
-        <div class="row">
-          <div id="content">
-            <div class="container col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1">
-              <div class="jumbotron">
-                <h3>Choose and option and search!</h3>
-                <form ng-submit="getQuery()">
-                  <input ng-model="query" type="text" class="form-control input-query" placeholder="Type you search!" autofocus>
-                  <select class="form-control query-select" ng-model="querySelect">
-                    <option value="" disabled>Choose games or streams</option>
-                    <option value="games" ngSelected="true">Games<i class="fa fa-gamepad"></i></option>
-                    <option value="streams">Streams<i class="fa fa-video-camera"></i></option>
-                  </select>
-                  <button ng-click="getQuery()" class="btn-block form-control button-query" type="button"><i class="glyphicon glyphicon-search"></i>   Search
-                  </button>
-                </form>
-              </div>
+    <div id="particles-js">
+        <div class="container">
+            <div class="row top">
+                <div class="twelve column">
+                    <div class="logo">Sky <span>Stream</span></div>
+                    <h1 class="text">The web where you can see all the streams , games and top videos in real-time , free of cost.</h1>
+                </div>
             </div>
-          </div>
+            <div class="hello text-center search-container">
+                <div class="row">
+                    <div id="content">
+                        <div class="container col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1">
+                            <div class="jumbotron">
+                                <h3>Choose and option and search!</h3>
+                                <form ng-submit="getQuery()">
+                                    <input ng-model="query" type="text" class="form-control input-query" placeholder="Type you search!" autofocus>
+                                    <select class="form-control query-select" ng-model="querySelect">
+                                        <option value="" disabled>Choose games or streams</option>
+                                        <option value="games" ngSelected="true">Games<i class="fa fa-gamepad"></i></option>
+                                        <option value="streams">Streams<i class="fa fa-video-camera"></i></option>
+                                    </select>
+                                    <button ng-click="getQuery()" class="btn-block form-control button-query" type="button"><i class="glyphicon glyphicon-search"></i> Search
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
-  </div>
 </div>

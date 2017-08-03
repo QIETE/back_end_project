@@ -287,7 +287,7 @@ button.btn.form-control.modal-button {
 @media (min-width: 320px) and (max-width: 768px) {
   .videos-display img {
     width: 280px; } }
-/* --------------------- queriesResponsive --------------------------------*/
+/* --------------------- scrollTop --------------------------------*/
 #toTop {
   position: fixed;
   bottom: 10px;
@@ -296,3 +296,5 @@ button.btn.form-control.modal-button {
   display: none;
   color: white;
   background-color: rgba(14, 157, 217, 0.2); }
+
+/* --------------------- register --------------------------------*/

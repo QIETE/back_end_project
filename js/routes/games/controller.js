@@ -1,5 +1,6 @@
 angular.module('skyStream')
-.controller('getGamesController', function ($scope, DataService) {
+.controller('getGamesController', function ($scope, $rootScope, DataService) {
+  $rootScope.auth = true
   $scope.section = 'TOP GAMES'
   DataService.getGames()
   .then(function (oData) {

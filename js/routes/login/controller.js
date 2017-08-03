@@ -1,19 +1,17 @@
 angular.module('skyStream')
-    .controller('loginController', function ($scope, $rootScope, userService) {
-      $rootScope.auth = true
+    .controller('loginController', function($scope, $rootScope, $location, userService) {
+        $rootScope.auth = true
 
-      $scope.login = function () {
-        var user = {
+        $scope.login = function() {
+            var username = $scope.username;
+            var password = $scope.password;
 
-          username: $scope.liusername,
-          password: $scope.lipassword
+            userService.login(username, password, function(result) {
+            	if (result.status === 'LOGIN_SUCCEEDED') {
+            		$location.path('/home')
 
+            		$scope.$apply()
+            	}
+            })
         }
-
-        console.dir(user)
-
-        userService.login(user, function (msg) {
-          console.log(msg)
-        })
-      }
     })

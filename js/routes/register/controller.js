@@ -16,7 +16,8 @@ angular.module('skyStream')
         userService.register(user, function (result) {
           $scope.registered = result.status === 'REGISTER_SUCCEEDED'
           $scope.alreadyRegistered = result.status === 'ALREADY_REGISTERED'
-          $scope.$digest()
+          
+          $scope.$apply()
         })
       }
     })

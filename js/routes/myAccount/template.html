@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title></title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <p5 class="title">Profile</p5>
+                <style type="text/css">
+                .title {
+                    font-size: 60px;
+                    color: white;
+                }
+                </style>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-md-12 text-center space1">
+                <style type="text/css">
+                .space1 {
+                    width: 100%;
+                }
+                </style>
+                <div class="form-group">
+                    <input ng-model="name" ng-required="true" type="text" name="name" class="form-control input-lg" placeholder="Change your Name" tabindex="1">
+                </div>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-md-12 text-center space3">
+            <style type="text/css">
+                .space3{
+                    width:100%;
+                }
+            </style>
+                <div class="form-group">
+                    <input ng-model="tel" ng-required="true" type="tel" name="tel" class="form-control input-lg" placeholder="Change your mobile telephone" tabindex="1">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 text-center space2">
+                <style type="text/css">
+                .space2 {
+                    width: 100%;
+                }
+                </style>
+                <div class="form-group">
+                    <textarea ng-model="description" ng-required="true" type="text" name="description" class="form-control input-lg" placeholder="Add a description" tabindex="1">
+                    </textarea>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

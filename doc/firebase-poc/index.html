@@ -1,0 +1,39 @@
+<script src="https://www.gstatic.com/firebasejs/4.2.0/firebase.js"></script>
+<script>
+// Initialize Firebase
+var config = {
+    // apiKey: "AIzaSyBiVj6w14u24CUoVAchlWv_NO9A6NeAwkk",
+    // authDomain: "skystream-66015.firebaseapp.com",
+    // databaseURL: "https://skystream-66015.firebaseio.com",
+    // projectId: "skystream-66015",
+    // storageBucket: "skystream-66015.appspot.com",
+    // messagingSenderId: "908767214855"
+};
+firebase.initializeApp(config);
+
+// DONE: añadir hello world al fb
+// DONE: consolear ese dato
+var database = firebase.database();
+
+var ref = database.ref('hello');
+ref.on('value', function(snapshot) {
+    console.log(snapshot.val())
+});
+
+var ref2 = database.ref('gerard');
+ref2.on('value', function(snapshot) {
+    console.log(snapshot.val())
+});
+
+// DONE: add nationality to gerard (country = spain)
+
+firebase.database().ref('gerard/country').set("spain");
+
+//DONE: add "computer" to "gerard" with following properties: "brand", "memory", "disk"
+firebase.database().ref('gerard/computer').set({
+	"brand":"hp",
+	"memory":"500gb",
+	"disk": "no idea "
+})
+
+</script>

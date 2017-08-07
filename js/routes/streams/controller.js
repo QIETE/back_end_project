@@ -17,10 +17,10 @@ angular.module('skyStream')
     }
   })
   $scope.like = function () {
-    return userFirebaseService.like()
+    return userService.like()
   }
 
   $scope.dislike = function () {
-    return userFirebaseService.dislike()
+    return userService.dislike()
   }
 })

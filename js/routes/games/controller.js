@@ -8,11 +8,15 @@ angular.module('skyStream')
     console.log(oData)
   })
 
-  $scope.like = function () {
-    return userFirebaseService.like()
+  $scope.like = function (contentId) {
+    return userService.like('games', contentId)
   }
 
-  $scope.dislike = function () {
-    return userFirebaseService.dislike()
+  $scope.dislike = function (contentId) {
+    return userService.dislike('games', contentId)
+  }
+
+  $scope.showId = function showId (contentId) {
+    alert(contentId)
   }
 })

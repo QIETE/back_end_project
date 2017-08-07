@@ -5,6 +5,6 @@ angular.module('skyStream')
       }
 
       $scope.logout = function () {
-      	 userService.logout()
+        userService.logout()
       }
     })

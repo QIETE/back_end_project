@@ -2,3 +2,20 @@
 TODO: poner css al proyecto para que quede mas bonito
 TODO: logout (hacer que al clicar en logout, se llame a un método del controller, "logout", que internamente llame al userService.logout, y éste ultimo borra la cache del usuario que actualmente está en login.
 
+
+
+‘QIETE’ : {
+    ...
+    analytics: {
+        'Super Mario 64': 1,
+        'Path of Exile': 1
+    }
+},
+'manuelbarzi': {
+    ...
+    analytics: {
+        'Pepito Flores': 1,
+        'Super Mario 64': -1
+    }
+
+

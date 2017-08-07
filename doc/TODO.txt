@@ -1,9 +1,4 @@
-TODO: activar / desactivar barra navegacion y footer en función usuario "login-ado" / no "login-ado"
-- cuando el usuario atterize que no haya ni barra de  navegación ni footer, solo la animacion de fondo
-- un usuario registrado hace login entonces es dirigido a home, entonces se activa la barra de navegacion y el footer
-- el logo debe estar visible en todo momento, la barra de navegacion comprende solo los botones de navegacion
-
-    TODO: Cuando usuario no login-ado ni barra ni footer, si login-do barra y footer.
-    
 
 TODO: poner css al proyecto para que quede mas bonito
+TODO: logout (hacer que al clicar en logout, se llame a un método del controller, "logout", que internamente llame al userService.logout, y éste ultimo borra la cache del usuario que actualmente está en login.
+

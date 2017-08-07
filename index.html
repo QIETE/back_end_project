@@ -52,8 +52,11 @@
                     <li>
                         <a href="#!/top-videos">Top Videos</a>
                     </li>
-                    <li ng-show="isUserLoggedIn()">
+                    <li  ng-show="isUserLoggedIn()">
                         <a href="#!/myAccount">My Account</a>
+                    </li>
+                    <li id="btnLogOut"  ng-show="isUserLoggedIn()">
+                        <a href="#!/">Log Out</a>
                     </li>
                 </ul>
             </div>

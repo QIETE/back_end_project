@@ -23,10 +23,15 @@ angular.module('skyStream')
           return user;
         }
 
+        function logout() {
+            user = undefined;
+        }
+
         var userService = {
             register: userFirebaseService.register,
             login: login,
-            retrieve: retrieve
+            retrieve: retrieve,
+            logout: logout
         }
 
         return userService;

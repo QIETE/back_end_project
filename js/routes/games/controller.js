@@ -8,10 +8,10 @@ angular.module('skyStream')
             })
 
       $scope.like = function (contentId) {
-        return userService.like('games', contentId)
+        userService.like('games', contentId)
       }
 
       $scope.dislike = function (contentId) {
-        return userService.dislike('games', contentId)
+        userService.dislike('games', contentId)
       }
     })

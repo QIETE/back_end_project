@@ -113,40 +113,12 @@ angular.module('skyStream')
             })
         }
 
-        function like() {
-            var ref = database.ref('users')
+        function like(username, contentType, contentId) {
+            database.ref('users/' + username).child('/analytics/' + contentType + '/' + contentId).set(1)
+        }
 
-            var data = {
-                analytics: user.analytics,
-                likes: user.likes
-
-            }
-            database.ref('users').child(user.analytics).set(data)
-            callback({
-                status: 'LIKE_SUCCEEDED',
-                message: 'user successfully liked'
-            })
-
-            function dislike(username) {
-            
-
-                var ref = database.ref('users/' + usersname +  '/analytics' )
-                ref.on('value', function(snapshot) {
-                    if (snapshot.val()) {
-                        firebase.database().ref('users/' + usersname + '/analytics').set("dislikes");
-                    }
-
-                })
-            }
-
-
-
-
-            // database.ref('users').child(user.analytics).set(data)
-            // callback({
-            //     status: 'DISLIKE_SUCCEEDED',
-            //     message: 'user successfully disliked'
-            // })
+        function dislike(username, contentType, contentId) {
+            database.ref('users/' + username).child('/analytics/' + contentType + '/' + contentId).set(-1)
         }
 
         var userFirebaseService = {
@@ -160,6 +132,4 @@ angular.module('skyStream')
 
         return userFirebaseService
 
-            })
-
-    
+    })

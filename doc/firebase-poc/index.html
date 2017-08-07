@@ -2,12 +2,12 @@
 <script>
 // Initialize Firebase
 var config = {
-    // apiKey: "AIzaSyBiVj6w14u24CUoVAchlWv_NO9A6NeAwkk",
-    // authDomain: "skystream-66015.firebaseapp.com",
-    // databaseURL: "https://skystream-66015.firebaseio.com",
-    // projectId: "skystream-66015",
-    // storageBucket: "skystream-66015.appspot.com",
-    // messagingSenderId: "908767214855"
+    apiKey: "AIzaSyBiVj6w14u24CUoVAchlWv_NO9A6NeAwkk",
+    authDomain: "skystream-66015.firebaseapp.com",
+    databaseURL: "https://skystream-66015.firebaseio.com",
+    projectId: "skystream-66015",
+    storageBucket: "skystream-66015.appspot.com",
+    messagingSenderId: "908767214855"
 };
 firebase.initializeApp(config);
 
@@ -35,5 +35,8 @@ firebase.database().ref('gerard/computer').set({
 	"memory":"500gb",
 	"disk": "no idea "
 })
+
+firebase.database().ref('gerard').child('1/2/3/4').set(1);
+firebase.database().ref('gerard').child('1/2/3/5').set(1);
 
 </script>

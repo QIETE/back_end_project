@@ -3,15 +3,15 @@
         <h2>{{section}}</h2>
     </div>
     <div class="games-grid">
-        <div ng-repeat="gameImg in gamesImgs | limitTo:36" class="game-item">
-            <h4>{{gameImg.game.name | limitTo:25}}</h4>
-            <img ng-src="{{gameImg.game.box.large}}">
+        <div ng-repeat="top in tops | limitTo:36" class="game-item">
+            <h4>{{top.game.name | limitTo:25}}</h4>
+            <img ng-src="{{top.game.box.large}}">
             <div class="row">
             <div class="col-md-6">
-                <button ng-click= 'showId(data.top[0].game._id)' type="button" class="btn btn-primary">Like</button>
+                <button ng-click= 'showId(top.game._id)' type="button" class="btn btn-primary">Like</button>
                 </div>
                 <div class="col-md-6">
-                <button ng-click= 'showId(data.top[0].game._id)' type="button" class="btn btn-primary">dislike</button>
+                <button ng-click= 'showId(top.game._id)' type="button" class="btn btn-primary">dislike</button>
                 </div>
             </div>
         </div>

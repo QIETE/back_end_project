@@ -55,8 +55,8 @@
                     <li  ng-show="isUserLoggedIn()">
                         <a href="#!/myAccount">My Account</a>
                     </li>
-                    <li id="btnLogOut"  ng-show="isUserLoggedIn()">
-                        <a href="#!/">Log Out</a>
+                    <li   ng-show="isUserLoggedIn()">
+                        <a ng-click="logout()" href="#!/">Log Out</a>
                     </li>
                 </ul>
             </div>

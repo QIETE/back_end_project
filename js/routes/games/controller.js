@@ -7,4 +7,12 @@ angular.module('skyStream')
     $scope.gamesImgs = oData.data.top
     console.log(oData)
   })
+
+  $scope.like = function () {
+    return userFirebaseService.like()
+  }
+
+  $scope.dislike = function () {
+    return userFirebaseService.dislike()
+  }
 })

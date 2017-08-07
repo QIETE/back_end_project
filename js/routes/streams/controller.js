@@ -16,4 +16,11 @@ angular.module('skyStream')
       $scope.names = oData.data.streams
     }
   })
+  $scope.like = function () {
+    return userFirebaseService.like()
+  }
+
+  $scope.dislike = function () {
+    return userFirebaseService.dislike()
+  }
 })

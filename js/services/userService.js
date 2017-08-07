@@ -32,6 +32,8 @@ angular.module('skyStream')
             retrieve: retrieve,
             update: userFirebaseService.update,
             logout: logout
+            like:like,
+            dislike:dislike
         }
 
 

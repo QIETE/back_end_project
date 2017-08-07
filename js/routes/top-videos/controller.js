@@ -10,4 +10,11 @@ angular.module('skyStream')
     })
     $scope.videos = oData.data.videos
   })
+  $scope.like = function () {
+    return userFirebaseService.like()
+  }
+
+  $scope.dislike = function () {
+    return userFirebaseService.dislike()
+  }
 })

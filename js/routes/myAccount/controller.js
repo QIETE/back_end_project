@@ -9,4 +9,23 @@ angular.module('skyStream')
       $scope.email = userService.retrieve().email
       $scope.age = userService.retrieve().age
       $scope.country = userService.retrieve().country
+
+      $scope.update = function () {
+        var user = {
+          name: $scope.name,
+          surname: $scope.surname,
+          age: $scope.age,
+          username: $scope.username,
+          password: $scope.password,
+          country: $scope.country,
+          email: $scope.email
+        }
+
+        userService.update(user, function (result) {
+          $scope.updated = result.status === 'UPDATE_SUCCEEDED'
+          $scope.notupdated = result.status === 'ALREADY_UPDATED'
+
+          $scope.$apply()
+        })
+      }
     })

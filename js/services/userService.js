@@ -1,7 +1,6 @@
 angular.module('skyStream')
     .factory('userService', function(userFirebaseService) {
-
-        var user;
+        var user
 
         function login(username, password, callback) {
             userFirebaseService.login(username, password, function(login) {
@@ -9,7 +8,7 @@ angular.module('skyStream')
                     userFirebaseService.retrieve(username, function(retrieve) {
                         if (retrieve.status === 'RETRIEVE_SUCCEEDED') {
                             user = retrieve.data
-                            
+
                             callback(login)
                         }
                     })
@@ -20,7 +19,7 @@ angular.module('skyStream')
         }
 
         function retrieve() {
-          return user;
+            return user
         }
 
         function logout() {
@@ -31,8 +30,10 @@ angular.module('skyStream')
             register: userFirebaseService.register,
             login: login,
             retrieve: retrieve,
+            update: userFirebaseService.update,
             logout: logout
         }
 
-        return userService;
+
+        return userService
     })

@@ -3,36 +3,36 @@
     <h2>{{section}}</h2>
   </div>
   <div class="videos-display">
-    <div ng-repeat="name in names | limitTo:6" class="top-videos-item thumbnail">
+    <div ng-repeat="stream in streams | limitTo:6" class="top-videos-item thumbnail">
       <!-- <img ng-src="{{name.preview.large}}" alt="image"> -->
       <div class="caption">
-        <img ng-src="{{name.preview.large}}" alt="film-image"></img>
-        <h4>{{name.channel.name}} <span>is playing</span></h4>
-        <h3>{{name.channel.game}}</h3>
-        <button type="button" class="btn form-control modal-button" data-toggle="modal" data-target="#{{ name._id }}">Video</button>
+        <img ng-src="{{stream.preview.large}}" alt="film-image"></img>
+        <h4>{{stream.channel.name}} <span>is playing</span></h4>
+        <h3>{{stream.channel.game}}</h3>
+        <button type="button" class="btn form-control modal-button" data-toggle="modal" data-target="#{{ stream._id }}">Video</button>
       </div>
       <!-- Modal -->
-      <div class="container modal fade game-modal" id="{{name._id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="container modal fade game-modal" id="{{stream._id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
             <div class="modal-header">
 
               <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-              <h4 class="modal-title" id="myModalLabel">{{name.channel.game}} </h4>
+              <h4 class="modal-title" id="myModalLabel">{{stream.channel.game}} </h4>
 
             </div>
             <div class="modal-body">
-              <iframe ng-src="{{name.channel.display_name}}" frameborder="0" allowfullscreen="true"></iframe>
+              <iframe ng-src="{{stream.channel.display_name}}" frameborder="0" allowfullscreen="true"></iframe>
             </div>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn" data-dismiss="modal">Close</button>
             <div class="row">
             <div class="col-md-3">
-                <button ng-click= 'like(names.streams._id)' type="button" class="btn btn-primary">Like</button>
+                <button ng-click= 'like(stream._id)' type="button" class="btn btn-primary">Like</button>
                 </div>
                 <div class="col-md-3">
-                <button ng-click= 'dislike(names.streams._id)' type="button" class="btn btn-primary">Dislike</button>
+                <button ng-click= 'dislike(stream._id)' type="button" class="btn btn-primary">Dislike</button>
                 </div>
             </div>
           </div>

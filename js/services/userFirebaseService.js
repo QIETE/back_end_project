@@ -117,13 +117,13 @@ angular.module('skyStream')
       function like (username, contentType, contentId, contentName) {
         var path = '/analytics/' + contentType + '/' + contentId
         database.ref('users/' + username).child(path + '/choice').set(1)
-        database.ref('users/' + username).child(path + '/title').set(contentName)
+        database.ref('users/' + username).child(path + '/name').set(contentName)
       }
 
       function dislike (username, contentType, contentId, contentName) {
         var path = '/analytics/' + contentType + '/' + contentId
         database.ref('users/' + username).child(path + '/choice').set(-1)
-        database.ref('users/' + username).child(path + '/title').set(contentName)
+        database.ref('users/' + username).child(path + '/name').set(contentName)
       }
 
       var userFirebaseService = {

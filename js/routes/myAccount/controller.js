@@ -19,6 +19,7 @@ angular.module('skyStream')
           password: $scope.password,
           country: $scope.country,
           email: $scope.email
+
         }
 
         userService.update(user, function (result) {

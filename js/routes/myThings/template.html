@@ -3,32 +3,38 @@
 
 <head>
     <title></title>
-</head>
+    <style type="text/css">
+        .choice {
+            font-size: 40px;
+            color: white;
+        }
 
+        .contentType {
+            font-size: 25px;
+            color: white;
+        }
+    </style>
+</head>
 <body>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-6 text-center">
-                <p5 class="title">LIKES</p5>
-                <style type="text/css">
-                .title {
-                    font-size: 50px;
-                    color: white;
-                }
-                </style>
-            </div>
-            <div class="col-md-6 text-center">
-                <p5 class="title">DISLIKES</p5>
-                <style type="text/css">
-                .title {
-                    font-size: 50px;
-                    color: white;
-                }
-                </style>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 text-center">
+            <p5 class="choice">LIKES</p5>
+            <div ng-if="likeGames">
+                <p6 class="contentType">Games</p6>
                 <ul>
-                    <li ng-repeat="(key, value) in games">
-                         {{key}} : {{value.title}} </li>
+                    <li ng-repeat="(id, game) in likeGames"><a ng-href="id">{{ game.name }} [{{ id }}]</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-md-6 text-center">
+            <p5 class="choice">DISLIKES</p5>
+            <div ng-if="dislikeGames">
+                <p6 class="contentType">Games</p6>
+                <ul>
+                    <li ng-repeat="(id, game) in dislikeGames"><a ng-href="id">{{ game.name }} [{{ id }}]</a></li>
                 </ul>
             </div>
         </div>
     </div>
+</div>

@@ -8,7 +8,7 @@
 <body>
     <div class="container">
         <div class="row">
-            <div class="col-md-4 text-center">
+            <div class="col-md-6 text-center">
                 <p5 class="title">LIKES</p5>
                 <style type="text/css">
                 .title {
@@ -17,9 +17,7 @@
                 }
                 </style>
             </div>
-
-
-            <div class="col-md-4 text-center">
+            <div class="col-md-6 text-center">
                 <p5 class="title">DISLIKES</p5>
                 <style type="text/css">
                 .title {
@@ -27,19 +25,10 @@
                     color: white;
                 }
                 </style>
-            </div>
-
-
-
-            <div class="col-md-4 text-center">
-                <p5 class="title">FAVOURITES</p5>
-                <style type="text/css">
-                .title {
-                    font-size: 50px;
-                    color: white;
-                }
-                </style>
+                <ul>
+                    <li ng-repeat="(key, value) in games">
+                         {{key}} : {{value.title}} </li>
+                </ul>
             </div>
         </div>
     </div>
-    

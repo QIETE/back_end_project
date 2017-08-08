@@ -10,11 +10,11 @@ angular.module('skyStream')
               })
               $scope.videos = result.data.videos
             })
-      $scope.like = function (contentId) {
-        userService.like('videos', contentId)
+      $scope.like = function (contentId, contentName) {
+        userService.like('videos', contentId, contentName)
       }
 
-      $scope.dislike = function (contentId) {
-        userService.dislike('videos', contentId)
+      $scope.dislike = function (contentId, contentName) {
+        userService.dislike('videos', contentId, contentName)
       }
     })

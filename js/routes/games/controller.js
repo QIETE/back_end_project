@@ -7,11 +7,11 @@ angular.module('skyStream')
               $scope.tops = oData.data.top
             })
 
-      $scope.like = function (contentId) {
-        userService.like('games', contentId)
+      $scope.like = function (contentId, contentName) {
+        userService.like('games', contentId, contentName)
       }
 
-      $scope.dislike = function (contentId) {
-        userService.dislike('games', contentId)
+      $scope.dislike = function (contentId, contentName) {
+        userService.dislike('games', contentId, contentName)
       }
     })

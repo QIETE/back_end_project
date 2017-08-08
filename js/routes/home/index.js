@@ -6,8 +6,7 @@ angular.module('skyStream')
                 controller: 'searchController',
                 resolve: {
                     check: function($location, userService) {
-                        var user = userService.retrieve();
-                        if (user) {
+                        if (userService.isLoggedIn()) {
                             $location.path('/home')
                         } else {
                             $location.path('/')

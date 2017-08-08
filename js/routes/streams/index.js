@@ -6,8 +6,7 @@ angular.module('skyStream')
     			controller: 'getStreamsController',
                 resolve: {
                     check: function($location, userService) {
-                        var user = userService.retrieve();
-                        if (user) {
+                        if (userService.isLoggedIn()) {
                             $location.path('/streams')
                         } else {
                             $location.path('/')

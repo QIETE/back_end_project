@@ -26,12 +26,12 @@ angular.module('skyStream')
         user = undefined
       }
 
-      function like (contentType, contentId) {
-        userFirebaseService.like(user.username, contentType, contentId)
+      function like (contentType, contentId, contentName) {
+        userFirebaseService.like(user.username, contentType, contentId, contentName)
       }
 
-      function dislike (contentType, contentId) {
-        userFirebaseService.dislike(user.username, contentType, contentId)
+      function dislike (contentType, contentId, contentName) {
+        userFirebaseService.dislike(user.username, contentType, contentId, contentName)
       }
 
       var userService = {

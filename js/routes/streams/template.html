@@ -29,10 +29,10 @@
             <button type="button" class="btn" data-dismiss="modal">Close</button>
             <div class="row">
             <div class="col-md-3">
-                <button ng-click= 'like(stream._id)' type="button" class="btn btn-primary">Like</button>
+                <button ng-click= 'like(stream._id,stream.channel.game)' type="button" class="btn btn-primary">Like</button>
                 </div>
                 <div class="col-md-3">
-                <button ng-click= 'dislike(stream._id)' type="button" class="btn btn-primary">Dislike</button>
+                <button ng-click= 'dislike(stream._id,stream.channel.game)' type="button" class="btn btn-primary">Dislike</button>
                 </div>
             </div>
           </div>

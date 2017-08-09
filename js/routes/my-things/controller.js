@@ -81,17 +81,17 @@ angular.module('skyStream')
         // modal
 
         $scope.open = function (contentType, contentId) {
-            var modalInstance = $uibModal.open({
+            $uibModal.open({
                 animation: false,
                 ariaLabelledBy: 'modal-title',
                 ariaDescribedBy: 'modal-body',
                 templateUrl: 'contentModal.html',
                 controller: 'ModalController',
                 resolve: {
-                    contentType: function() {
+                    contentType: function () {
                         return contentType
                     },
-                    contentId: function() {
+                    contentId: function () {
                         return contentId
                     }
                 }
@@ -101,17 +101,31 @@ angular.module('skyStream')
 
 
 angular.module('skyStream')
-    .controller('ModalController', function ($scope, $uibModalInstance, contentType, contentId, DataService) {
+    .controller('ModalController', function ($scope, $uibModalInstance, DataService, contentType, contentId) {
         $scope.contentType = contentType
 
         $scope.contentId = contentId
 
-        DataService.getGames()
-            .then(function (oData) {
-                var tops = oData.data.top
+        if (contentType === 'games') {
+            DataService.getGames()
+                .then(function (result) {
+                    var tops = result.data.top
 
-                $scope.top = tops[0].game._id
-            })
+                    for (var i = 0; i < tops.length; i++) {
+                        var top = tops[i]
+
+                        if (top.game._id == contentId) {
+                            $scope.found = top
+
+                            break;
+                        }
+                    }
+                })
+        } else if(contentType === 'streams') {
+            // TODO
+        } else if (contentType === 'videos') {
+            // TODO
+        }
 
         $scope.close = function () {
             $uibModalInstance.close()

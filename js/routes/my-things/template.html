@@ -4,86 +4,90 @@
 <head>
     <title></title>
     <style type="text/css">
-    .choice {
-        font-size: 40px;
-        color: white;
-    }
+        .choice {
+            font-size: 40px;
+            color: white;
+        }
 
-    .contentType {
-        font-size: 25px;
-        color: white;
-    }
+        .contentType {
+            font-size: 25px;
+            color: white;
+        }
 
-       .contenttext {
-        font-size: 25px;
-        color: white;
-    }
-    .modal-title {
-        font-size: 25px;
-        color: white;
-    }
+        .contenttext {
+            font-size: 25px;
+            color: white;
+        }
+
+        .modal-title {
+            font-size: 25px;
+            color: white;
+        }
     </style>
 </head>
 
 <body>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-6 text-center">
-                <p5 class="choice">LIKES</p5>
-                <div ng-if="likeGames">
-                    <p6 class="contentType">Games</p6>
-                    <ul>
-                        <li ng-repeat="(id, game) in likeGames"><a ng-click="open('games', id)">{{ game.name }} [{{ id }}]</a></li>
-                    </ul>
-                </div>
-                <div ng-if="likeStreams">
-                    <p6 class="contentType">Streams</p6>
-                    <ul>
-                        <li ng-repeat="(id, stream) in likeStreams"><a ng-href="id">{{ stream.name }} [{{ id }}]</a></li>
-                    </ul>
-                </div>
-                <div ng-if="likeVideos">
-                    <p6 class="contentType">Videos</p6>
-                    <ul>
-                        <li ng-repeat="(id, video) in likeVideos"><a ng-href="id">{{ video.name }} [{{ id }}]</a></li>
-                    </ul>
-                </div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 text-center">
+            <p5 class="choice">LIKES</p5>
+            <div ng-if="likeGames">
+                <p6 class="contentType">Games</p6>
+                <ul>
+                    <li ng-repeat="(id, game) in likeGames"><a ng-click="open('games', id)">{{ game.name }} [{{ id
+                        }}]</a></li>
+                </ul>
             </div>
-            <div class="col-md-6 text-center">
-                <p5 class="choice">DISLIKES</p5>
-                <div ng-if="dislikeGames">
-                    <p6 class="contentType">Games</p6>
-                    <ul>
-                        <li ng-repeat="(id, game) in dislikeGames"><a ng-href="id">{{ game.name }} [{{ id }}]</a></li>
-                    </ul>
-                </div>
-                <div ng-if="dislikeStreams">
-                    <p6 class="contentType">Streams</p6>
-                    <ul>
-                        <li ng-repeat="(id, stream) in dislikeStreams"><a ng-href="id">{{ stream.name }} [{{ id }}]</a></li>
-                    </ul>
-                </div>
-                <div ng-if="dislikeVideos">
-                    <p6 class="contentType">Videos</p6>
-                    <ul>
-                        <li ng-repeat="(id, video) in dislikeVideos"><a data-target="#myModal" data-toggle="modal" class="MainNavText" id="MainNavHelp" >{{ video.name }} [{{ id }}]</a></li>
-                    </ul>
-                </div>
+            <div ng-if="likeStreams">
+                <p6 class="contentType">Streams</p6>
+                <ul>
+                    <li ng-repeat="(id, stream) in likeStreams"><a ng-href="id">{{ stream.name }} [{{ id }}]</a></li>
+                </ul>
+            </div>
+            <div ng-if="likeVideos">
+                <p6 class="contentType">Videos</p6>
+                <ul>
+                    <li ng-repeat="(id, video) in likeVideos"><a ng-href="id">{{ video.name }} [{{ id }}]</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-md-6 text-center">
+            <p5 class="choice">DISLIKES</p5>
+            <div ng-if="dislikeGames">
+                <p6 class="contentType">Games</p6>
+                <ul>
+                    <li ng-repeat="(id, game) in dislikeGames"><a ng-click="open('games', id)">{{ game.name }} [{{ id }}]</a></li>
+                </ul>
+            </div>
+            <div ng-if="dislikeStreams">
+                <p6 class="contentType">Streams</p6>
+                <ul>
+                    <li ng-repeat="(id, stream) in dislikeStreams"><a ng-href="id">{{ stream.name }} [{{ id }}]</a></li>
+                </ul>
+            </div>
+            <div ng-if="dislikeVideos">
+                <p6 class="contentType">Videos</p6>
+                <ul>
+                    <li ng-repeat="(id, video) in dislikeVideos"><a data-target="#myModal" data-toggle="modal"
+                                                                    class="MainNavText" id="MainNavHelp">{{ video.name
+                        }} [{{ id }}]</a></li>
+                </ul>
             </div>
         </div>
     </div>
-    <script type="text/ng-template" id="contentModal.html">
-        <div class="modal-header">
-            <h3 class="modal-title" id="modal-title">I'm a modal!</h3>
-        </div>
-        <div class="modal-body" id="modal-body">
-            <span class="contenttext" >contentType: {{ contentType }}</span> <span class="contenttext">contentId: {{ contentId }}</span>
-            <span class=""contenttext">top: {{ top }}</span>
-        </div>
-        <div class="modal-footer">
-            <button class="btn btn-primary" type="button" ng-click="close()">Close</button>
-        </div>
-    </script>
+</div>
+<script type="text/ng-template" id="contentModal.html">
+    <div class="modal-header">
+        <h3 class="modal-title" id="modal-title">I'm a modal!</h3>
+    </div>
+    <div class="modal-body" id="modal-body">
+        <h4>{{ found.game.name | limitTo:25 }}</h4>
+        <img ng-src="{{ found.game.box.large }}">
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-primary" type="button" ng-click="close()">Close</button>
+    </div>
+</script>
 </body>
 
 

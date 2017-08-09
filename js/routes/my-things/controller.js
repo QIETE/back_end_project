@@ -101,10 +101,17 @@ angular.module('skyStream')
 
 
 angular.module('skyStream')
-    .controller('ModalController', function ($scope, $uibModalInstance, contentType, contentId) {
+    .controller('ModalController', function ($scope, $uibModalInstance, contentType, contentId, DataService) {
         $scope.contentType = contentType
 
         $scope.contentId = contentId
+
+        DataService.getGames()
+            .then(function (oData) {
+                var tops = oData.data.top
+
+                $scope.top = tops[0].game._id
+            })
 
         $scope.close = function () {
             $uibModalInstance.close()

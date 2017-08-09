@@ -1,157 +1,180 @@
 angular.module('skyStream')
     .controller('myThingsController', function ($scope, $rootScope, userService, $document, $uibModal) {
-        $rootScope.auth = true
+      $rootScope.auth = true
 
-        userService.retrieve(function (user) {
-            var analytics = user.analytics
+      userService.retrieve(function (user) {
+        var analytics = user.analytics
 
-            var games = user.analytics.games
-            var streams = user.analytics.streams
-            var videos = user.analytics.videos
+        var games = user.analytics.games
+        var streams = user.analytics.streams
+        var videos = user.analytics.videos
 
-            var likeGames
-            var dislikeGames
+        var likeGames
+        var dislikeGames
 
-            for (var id in games) {
-                var game = games[id]
+        for (var id in games) {
+          var game = games[id]
 
-                if (game.choice === 1) {
-                    if (likeGames === undefined) {
-                        likeGames = {}
-                    }
-                    likeGames[id] = game
-                } else {
-                    if (dislikeGames === undefined) {
-                        dislikeGames = {}
-                    }
-                    dislikeGames[id] = game
-                }
+          if (game.choice === 1) {
+            if (likeGames === undefined) {
+              likeGames = {}
             }
-
-            $scope.likeGames = likeGames
-            $scope.dislikeGames = dislikeGames
-
-            var likeStreams
-            var dislikeStreams
-
-            for (var id in streams) {
-                var stream = streams[id]
-
-                if (stream.choice === 1) {
-                    if (likeStreams === undefined) {
-                        likeStreams = {}
-                    }
-                    likeStreams[id] = stream
-                } else {
-                    if (dislikeStreams === undefined) {
-                        dislikeStreams = {}
-                    }
-                    dislikeStreams[id] = stream
-                }
+            likeGames[id] = game
+          } else {
+            if (dislikeGames === undefined) {
+              dislikeGames = {}
             }
+            dislikeGames[id] = game
+          }
+        }
 
-            $scope.likeStreams = likeStreams
-            $scope.dislikeStreams = dislikeStreams
+        $scope.likeGames = likeGames
+        $scope.dislikeGames = dislikeGames
 
-            var likeVideos
-            var dislikeVideos
+        var likeStreams
+        var dislikeStreams
 
-            for (var id in videos) {
-                var video = videos[id]
+        for (var id in streams) {
+          var stream = streams[id]
 
-                if (video.choice === 1) {
-                    if (likeVideos === undefined) {
-                        likeVideos = {}
-                    }
-                    likeVideos[id] = video
-                } else {
-                    if (dislikeVideos === undefined) {
-                        dislikeVideos = {}
-                    }
-                    dislikeVideos[id] = video
-                }
+          if (stream.choice === 1) {
+            if (likeStreams === undefined) {
+              likeStreams = {}
             }
+            likeStreams[id] = stream
+          } else {
+            if (dislikeStreams === undefined) {
+              dislikeStreams = {}
+            }
+            dislikeStreams[id] = stream
+          }
+        }
 
-            $scope.likeVideos = likeVideos
-            $scope.dislikeVideos = dislikeVideos
+        $scope.likeStreams = likeStreams
+        $scope.dislikeStreams = dislikeStreams
 
-            $scope.$apply()
-        })
+        var likeVideos
+        var dislikeVideos
+
+        for (var id in videos) {
+          var video = videos[id]
+
+          if (video.choice === 1) {
+            if (likeVideos === undefined) {
+              likeVideos = {}
+            }
+            likeVideos[id] = video
+          } else {
+            if (dislikeVideos === undefined) {
+              dislikeVideos = {}
+            }
+            dislikeVideos[id] = video
+          }
+        }
+
+        $scope.likeVideos = likeVideos
+        $scope.dislikeVideos = dislikeVideos
+
+        $scope.$apply()
+      })
 
         // modal
 
-        $scope.open = function (contentType, contentId) {
-            $uibModal.open({
-                animation: false,
-                ariaLabelledBy: 'modal-title',
-                ariaDescribedBy: 'modal-body',
-                templateUrl: 'contentModal.html',
-                controller: 'ModalController',
-                resolve: {
-                    contentType: function () {
-                        return contentType
-                    },
-                    contentId: function () {
-                        return contentId
-                    }
-                }
-            })
-        }
+      $scope.open = function (contentType, contentId) {
+        $uibModal.open({
+          animation: false,
+          ariaLabelledBy: 'modal-title',
+          ariaDescribedBy: 'modal-body',
+          templateUrl: 'contentModal.html',
+          controller: 'ModalController',
+          resolve: {
+            contentType: function () {
+              return contentType
+            },
+            contentId: function () {
+              return contentId
+            }
+          }
+        })
+      }
     })
-
 
 angular.module('skyStream')
     .controller('ModalController', function ($scope, $uibModalInstance, $sce, DataService, contentType, contentId) {
-        $scope.contentType = contentType
+      $scope.contentType = contentType
 
-        $scope.contentId = contentId
+      $scope.contentId = contentId
 
-        if (contentType === 'games') {
-            DataService.getGames()
+      if (contentType === 'games') {
+        DataService.getGames()
                 .then(function (result) {
-                    var tops = result.data.top
+                  var tops = result.data.top
 
-                    for (var i = 0; i < tops.length; i++) {
-                        var top = tops[i]
+                  for (var i = 0; i < tops.length; i++) {
+                    var top = tops[i]
 
-                        if (top.game._id == contentId) {
-                            $scope.game = top
+                    if (top.game._id == contentId) {
+                      $scope.game = top
 
-                            break
-                        }
+                      break
                     }
+                  }
                 })
-        } else if(contentType === 'streams') {
-            DataService.getStreams()
+      } else if (contentType === 'streams') {
+        DataService.getStreams()
                 .then(function (result) {
-                    var streams = result.data.streams
+                  var streams = result.data.streams
 
-                    for (var i = 0; i < streams.length; i++) {
-                        var stream = streams[i]
+                  for (var i = 0; i < streams.length; i++) {
+                    var stream = streams[i]
 
-                        if (stream._id == contentId) {
-                            $scope.stream = stream
+                    if (stream._id == contentId) {
+                      $scope.stream = stream
 
-                            let url = 'https://player.twitch.tv/?channel=' + stream.channel.display_name + '&autoplay=false'
-                            $scope.url = $sce.trustAsResourceUrl(url)
+                      let url = 'https://player.twitch.tv/?channel=' + stream.channel.display_name + '&autoplay=false'
+                      $scope.url = $sce.trustAsResourceUrl(url)
 
-                            break
-                        }
+                      break
                     }
+                  }
 
-                    result.data.streams.forEach(function (key) {
+                  result.data.streams.forEach(function (key) {
 
-                    })
-                    $scope.streams = result.data.streams
-                    if ($scope.streams.length === 0) {
-                        $scope.notGame += $routeParams.query + 'not found'
-                    }
+                  })
+                  $scope.streams = result.data.streams
+                  if ($scope.streams.length === 0) {
+                    $scope.notGame += $routeParams.query + 'not found'
+                  }
                 })
-        } else if (contentType === 'videos') {
-            // TODO
-        }
+      } else if (contentType === 'videos') {
+        DataService.getTopVideos()
+                .then(function (result) {
+                  var videos = result.data.videos
 
-        $scope.close = function () {
-            $uibModalInstance.close()
-        }
-    });
+                  for (var i = 0; i < videos.length; i++) {
+                    var video = videos[i]
+
+                    if (video._id == contentId) {
+                      $scope.video = video
+
+                      let url = 'https://player.twitch.tv/?channel=' + video.broadcast_id + '&autoplay=false'
+                      $scope.url = $sce.trustAsResourceUrl(url)
+
+                      break
+                    }
+                  }
+
+                  result.data.videos.forEach(function (key) {
+
+                  })
+                  $scope.videos = result.data.videos
+                  if ($scope.videos.length === 0) {
+                    $scope.notVideo += $routeParams.query + 'not found'
+                  }
+                })
+      }
+
+      $scope.close = function () {
+        $uibModalInstance.close()
+      }
+    })

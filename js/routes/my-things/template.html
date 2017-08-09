@@ -69,8 +69,7 @@
             <div ng-if="dislikeVideos">
                 <p6 class="contentType">Videos</p6>
                 <ul>
-                    <li ng-repeat="(id, video) in dislikeVideos"><a data-target="#myModal" data-toggle="modal"
-                                                                    class="MainNavText" id="MainNavHelp">{{ video.name
+                    <li ng-repeat="(id, video) in dislikeVideos"><a ng-click="open('videos', id)">{{ video.name
                         }} [{{ id }}]</a></li>
                 </ul>
             </div>
@@ -94,7 +93,7 @@
 
          <div ng-if="video">
             <h4 class="modal-title" id="myModalLabel">{{video.game}} </h4>
-            <img ng-src="{{video.preview.large}}" alt="film-image"></img>
+            <img ng-src="{{video.preview}}" alt="film-image"></img>
             <iframe ng-src="{{ url }}" frameborder="0" allowfullscreen="true"></iframe>
         </div>
         

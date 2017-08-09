@@ -6,7 +6,7 @@ angular.module('skyStream')
             .then(function (result) {
               result.data.videos.forEach(function (key) {
                 var url = 'https://player.twitch.tv/?video=' + key._id + '&autoplay=false'
-                key._id = $sce.trustAsResourceUrl(url)
+                key.trustUrl = $sce.trustAsResourceUrl(url)
               })
               $scope.videos = result.data.videos
             })

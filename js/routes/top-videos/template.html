@@ -18,17 +18,17 @@
               <h4 class="modal-title" id="myModalLabel">{{video.game}} </h4>
             </div>
             <div class="modal-body">
-              <iframe ng-src="{{video._id}}" frameborder="0" allowfullscreen="true"></iframe>
+              <iframe ng-src="{{video.trustUrl}}" frameborder="0" allowfullscreen="true"></iframe>
             </div>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
             <div class="row">
             <div class="col-md-3">
-                <button ng-click= 'like(video.broadcast_id,video.game)' type="button" class="btn btn-primary">Like</button>
+                <button ng-click= 'like(video._id,video.game)' type="button" class="btn btn-primary">Like</button>
                 </div>
                 <div class="col-md-3">
-                <button ng-click= 'dislike(video.broadcast_id,video.game)' type="button" class="btn btn-primary">Dislike</button>
+                <button ng-click= 'dislike(video._id,video.game)' type="button" class="btn btn-primary">Dislike</button>
                 </div>
             </div>
           </div>

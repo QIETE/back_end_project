@@ -1,6 +1,4 @@
 
 TODO: poner css al proyecto para que quede mas bonito
-TODO:Añadirlo al my account y que te diga a que especificamente le has dado like o dislike.
 
-TODO:corregir problema con el update
-
+TODO: que cuando se clique el enlace se abra un modal

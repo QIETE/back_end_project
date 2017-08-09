@@ -101,7 +101,7 @@ angular.module('skyStream')
 
 
 angular.module('skyStream')
-    .controller('ModalController', function ($scope, $uibModalInstance, DataService, contentType, contentId) {
+    .controller('ModalController', function ($scope, $uibModalInstance, $sce, DataService, contentType, contentId) {
         $scope.contentType = contentType
 
         $scope.contentId = contentId
@@ -115,14 +115,38 @@ angular.module('skyStream')
                         var top = tops[i]
 
                         if (top.game._id == contentId) {
-                            $scope.found = top
+                            $scope.game = top
 
-                            break;
+                            break
                         }
                     }
                 })
         } else if(contentType === 'streams') {
-            // TODO
+            DataService.getStreams()
+                .then(function (result) {
+                    var streams = result.data.streams
+
+                    for (var i = 0; i < streams.length; i++) {
+                        var stream = streams[i]
+
+                        if (stream._id == contentId) {
+                            $scope.stream = stream
+
+                            let url = 'https://player.twitch.tv/?channel=' + stream.channel.display_name + '&autoplay=false'
+                            $scope.url = $sce.trustAsResourceUrl(url)
+
+                            break
+                        }
+                    }
+
+                    result.data.streams.forEach(function (key) {
+
+                    })
+                    $scope.streams = result.data.streams
+                    if ($scope.streams.length === 0) {
+                        $scope.notGame += $routeParams.query + 'not found'
+                    }
+                })
         } else if (contentType === 'videos') {
             // TODO
         }

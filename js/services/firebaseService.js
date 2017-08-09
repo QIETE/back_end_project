@@ -1,5 +1,5 @@
 angular.module('skyStream')
-    .factory('userFirebaseService', function () {
+    .factory('firebaseService', function () {
         var config = {
             apiKey: 'AIzaSyBiVj6w14u24CUoVAchlWv_NO9A6NeAwkk',
             authDomain: 'skystream-66015.firebaseapp.com',

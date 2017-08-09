@@ -1,5 +1,5 @@
 angular.module('skyStream')
-    .controller('myThingsController', function ($scope, $rootScope, userService) {
+    .controller('myThingsController', function ($scope, $rootScope, userService, $document, $uibModal) {
         $rootScope.auth = true
 
         userService.retrieve(function (user) {
@@ -77,4 +77,39 @@ angular.module('skyStream')
 
             $scope.$apply()
         })
+
+        // modal
+
+        $scope.open = function (contentType, contentId) {
+            var modalInstance = $uibModal.open({
+                animation: false,
+                ariaLabelledBy: 'modal-title',
+                ariaDescribedBy: 'modal-body',
+                templateUrl: 'contentModal.html',
+                controller: 'ModalController',
+                controllerAs: '$ctrl',
+                resolve: {
+                    contentType: function() {
+                        return contentType
+                    },
+                    contentId: function() {
+                        return contentId
+                    }
+                }
+            });
+        }
     })
+
+
+angular.module('skyStream')
+    .controller('ModalController', function ($uibModalInstance, contentType, contentId) {
+        var $ctrl = this;
+
+        $ctrl.contentType = contentType
+
+        $ctrl.contentId = contentId
+
+        $ctrl.close = function () {
+            $uibModalInstance.close()
+        }
+    });

@@ -1,1 +1,1 @@
-angular.module('skyStream', ['ngRoute'])
+angular.module('skyStream', ['ngRoute', 'ui.bootstrap'])

@@ -87,7 +87,6 @@ angular.module('skyStream')
                 ariaDescribedBy: 'modal-body',
                 templateUrl: 'contentModal.html',
                 controller: 'ModalController',
-                controllerAs: '$ctrl',
                 resolve: {
                     contentType: function() {
                         return contentType
@@ -96,20 +95,18 @@ angular.module('skyStream')
                         return contentId
                     }
                 }
-            });
+            })
         }
     })
 
 
 angular.module('skyStream')
-    .controller('ModalController', function ($uibModalInstance, contentType, contentId) {
-        var $ctrl = this;
+    .controller('ModalController', function ($scope, $uibModalInstance, contentType, contentId) {
+        $scope.contentType = contentType
 
-        $ctrl.contentType = contentType
+        $scope.contentId = contentId
 
-        $ctrl.contentId = contentId
-
-        $ctrl.close = function () {
+        $scope.close = function () {
             $uibModalInstance.close()
         }
     });

@@ -9,6 +9,8 @@ angular.module('skyStream')
                 userService.logout()
 
                 $location.path('/')
+
+                //$scope.$apply()
             }
         }
     })

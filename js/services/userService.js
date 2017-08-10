@@ -5,8 +5,8 @@ angular.module('skyStream')
                 if (login.status === 'LOGIN_SUCCEEDED') {
                     firebaseService.retrieve(username, function (retrieve) {
                         if (retrieve.status === 'RETRIEVE_SUCCEEDED') {
-                            sessionStorage.skyStreamUsername = username
-                            sessionStorage.skyStreamloggedIn = true
+                            sessionStorage.skyStream_username = username
+                            sessionStorage.skyStream_loggedIn = true
 
                             callback(login)
                         }
@@ -18,25 +18,26 @@ angular.module('skyStream')
         }
 
         function isLoggedIn() {
-            return sessionStorage.skyStreamloggedIn
+            return sessionStorage.skyStream_loggedIn
         }
 
         function logout() {
-            sessionStorage.skyStreamloggedIn = false
+            delete sessionStorage.skyStream_username
+            delete sessionStorage.skyStream_loggedIn
         }
 
         function retrieve(callback) {
-            firebaseService.retrieve(sessionStorage.skyStreamUsername, function(result) {
+            firebaseService.retrieve(sessionStorage.skyStream_username, function(result) {
                 callback(result.data)
             })
         }
 
         function like(contentType, contentId, contentName) {
-            firebaseService.like(sessionStorage.skyStreamUsername, contentType, contentId, contentName)
+            firebaseService.like(sessionStorage.skyStream_username, contentType, contentId, contentName)
         }
 
         function dislike(contentType, contentId, contentName) {
-            firebaseService.dislike(sessionStorage.skyStreamUsername, contentType, contentId, contentName)
+            firebaseService.dislike(sessionStorage.skyStream_username, contentType, contentId, contentName)
         }
 
         var userService = {

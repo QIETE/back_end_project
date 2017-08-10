@@ -3,5 +3,5 @@ TODO: poner css al proyecto para que quede mas bonito
 
 TODO: en casa, hacer presentacion google slide del proyecto
 
-TODO: dentro de my things, añadir espacio entre imagen y video en streams y videos
+TODO: dentro de my things, kañadir espacio entre imagen y video en streams y videos
 

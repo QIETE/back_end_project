@@ -29,6 +29,7 @@ angular.module('skyStream')
       function logout () {
         delete sessionStorage.skyStream_username
         delete sessionStorage.skyStream_loggedIn
+        delete sessionStorage.skyStream_photo
       }
 
       function retrieve (callback) {
@@ -45,12 +46,22 @@ angular.module('skyStream')
         firebaseService.dislike(sessionStorage.skyStream_username, contentType, contentId, contentName)
       }
 
+      function update (user, callback) {
+        firebaseService.update(user, function (result) {
+          if (result.status === 'UPDATE_SUCCEEDED') {
+            sessionStorage.skyStream_photo = user.photo
+          }
+
+          callback(result)
+        })
+      }
+
       var userService = {
         register: firebaseService.register,
         login: login,
         isLoggedIn: isLoggedIn,
         retrieve: retrieve,
-        update: firebaseService.update,
+        update: update,
         logout: logout,
         like: like,
         dislike: dislike,

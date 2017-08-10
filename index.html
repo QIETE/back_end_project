@@ -63,7 +63,14 @@
                     </li>
 
                      <li ng-show="isUserLoggedIn()">
-                    <img class="img-responsive img-circle" src="{{ photo() }}">
+                    <img class="img-responsive img-circle photo" src="{{ photo() }}">
+                    <style type="text/css">
+                        .photo{
+                           height:90px;
+                           width: 90px;
+                           margin-left:30px;    
+                        }
+                    </style>
                     </li>
                 </ul>
             </div>

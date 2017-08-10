@@ -10,13 +10,14 @@ angular.module('skyStream')
           username: $scope.username,
           password: $scope.password,
           country: $scope.country,
-          email: $scope.email
+          email: $scope.email,
+          photo: $scope.photo
         }
 
         userService.register(user, function (result) {
           $scope.registered = result.status === 'REGISTER_SUCCEEDED'
           $scope.alreadyRegistered = result.status === 'ALREADY_REGISTERED'
-          
+
           $scope.$apply()
         })
       }

@@ -1,4 +1,7 @@
 
 TODO: poner css al proyecto para que quede mas bonito
 
-TODO: que cuando se clique el enlace se abra un modal
+TODO: en casa, hacer presentacion google slide del proyecto
+
+TODO: dentro de my things, añadir espacio entre imagen y video en streams y videos
+

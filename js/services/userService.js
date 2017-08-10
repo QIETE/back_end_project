@@ -1,15 +1,12 @@
 angular.module('skyStream')
     .factory('userService', function (firebaseService) {
-        var user = {}
-
-
         function login(username, password, callback) {
             firebaseService.login(username, password, function (login) {
                 if (login.status === 'LOGIN_SUCCEEDED') {
                     firebaseService.retrieve(username, function (retrieve) {
                         if (retrieve.status === 'RETRIEVE_SUCCEEDED') {
-                            user.username = username
-                            user.loggedIn = true
+                            sessionStorage.skyStreamUsername = username
+                            sessionStorage.skyStreamloggedIn = true
 
                             callback(login)
                         }
@@ -21,25 +18,25 @@ angular.module('skyStream')
         }
 
         function isLoggedIn() {
-            return user.loggedIn
+            return sessionStorage.skyStreamloggedIn
         }
 
         function logout() {
-            user.loggedIn = false
+            sessionStorage.skyStreamloggedIn = false
         }
 
         function retrieve(callback) {
-            firebaseService.retrieve(user.username, function(result) {
+            firebaseService.retrieve(sessionStorage.skyStreamUsername, function(result) {
                 callback(result.data)
             })
         }
 
         function like(contentType, contentId, contentName) {
-            firebaseService.like(user.username, contentType, contentId, contentName)
+            firebaseService.like(sessionStorage.skyStreamUsername, contentType, contentId, contentName)
         }
 
         function dislike(contentType, contentId, contentName) {
-            firebaseService.dislike(user.username, contentType, contentId, contentName)
+            firebaseService.dislike(sessionStorage.skyStreamUsername, contentType, contentId, contentName)
         }
 
         var userService = {

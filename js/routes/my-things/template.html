@@ -57,20 +57,19 @@
             <div ng-if="likeGames">
                 <p6 class="contentType">Games</p6>
                 <ul>
-                    <li ng-repeat="(id, game) in likeGames"><a ng-click="open('games', id)">{{ game.name }} [{{ id
-                        }}]</a></li>
+                    <li ng-repeat="(id, game) in likeGames"><a ng-click="open('games', id)">{{ game.name }}</a></li>
                 </ul>
             </div>
             <div ng-if="likeStreams">
                 <p6 class="contentType">Streams</p6>
                 <ul>
-                    <li ng-repeat="(id, stream) in likeStreams"><a ng-click="open('streams', id)">{{ stream.name }} [{{ id }}]</a></li>
+                    <li ng-repeat="(id, stream) in likeStreams"><a ng-click="open('streams', id)">{{ stream.name }}</a></li>
                 </ul>
             </div>
             <div ng-if="likeVideos">
                 <p6 class="contentType">Videos</p6>
                 <ul>
-                    <li ng-repeat="(id, video) in likeVideos"><a ng-click="open('videos', id)">{{ video.name }} [{{ id }}]</a></li>
+                    <li ng-repeat="(id, video) in likeVideos"><a ng-click="open('videos', id)">{{ video.name }}</a></li>
                 </ul>
             </div>
         </div>
@@ -79,21 +78,20 @@
             <div ng-if="dislikeGames">
                 <p6 class="contentType">Games</p6>
                 <ul>
-                    <li ng-repeat="(id, game) in dislikeGames"><a ng-click="open('games', id)">{{ game.name }} [{{ id
-                        }}]</a></li>
+                    <li ng-repeat="(id, game) in dislikeGames"><a ng-click="open('games', id)">{{ game.name }}</a></li>
                 </ul>
             </div>
             <div ng-if="dislikeStreams">
                 <p6 class="contentType">Streams</p6>
                 <ul>
-                    <li ng-repeat="(id, stream) in dislikeStreams"><a ng-click="open('streams', id)">{{ stream.name }} [{{ id }}]</a></li>
+                    <li ng-repeat="(id, stream) in dislikeStreams"><a ng-click="open('streams', id)">{{ stream.name }}</a></li>
                 </ul>
             </div>
             <div ng-if="dislikeVideos">
                 <p6 class="contentType">Videos</p6>
                 <ul>
                     <li ng-repeat="(id, video) in dislikeVideos"><a ng-click="open('videos', id)">{{ video.name
-                        }} [{{ id }}]</a></li>
+                        }}</a></li>
                 </ul>
             </div>
         </div>
@@ -101,21 +99,25 @@
 </div>
 <script type="text/ng-template" id="contentModal.html">
     <div class="modal-header">
-        <h3 class="modal-title" id="modal-title">I'm a modal!</h3>
+        <div ng-if="game">
+            <h3 class="modal-title" id="modal-title">{{ game.game.name | limitTo:25 }}</h3>
+        </div>
+        <div ng-if="stream">
+            <h3 class="modal-title" id="modal-title">{{stream.channel.name}} <span>is playing</span></h3>
+        </div>
+        <div ng-if="video">
+            <h3 class="modal-title" id="modal-title">{{video.game}}</h3>
+        </div>
     </div>
     <div class="modal-body" id="modal-body">
         <div ng-if="game">
-            <h4>{{ game.game.name | limitTo:25 }}</h4>
             <img class="imgG" ng-src="{{ game.game.box.large }}">
         </div>
         <div ng-if="stream">
-            <h4>{{stream.channel.name}} <span>is playing</span></h4>
             <img  class="imgS" ng-src="{{stream.preview.large}}" alt="film-image"></img>
             <iframe   ng-src="{{ url }}" frameborder="0" allowfullscreen="true"></iframe>
         </div>
-
          <div ng-if="video">
-            <h4 class="modal-title" id="myModalLabel">{{video.game}} </h4>
             <img class="imgV" ng-src="{{video.preview}}" alt="film-image"></img>
             <iframe ng-src="{{ url }}" frameborder="0" allowfullscreen="true"></iframe>
         </div>
